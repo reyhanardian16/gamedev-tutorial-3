@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://qblrxp3x2may"]
+
+[ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_1l8yk"]
+[ext_resource type="Texture2D" uid="uid://bvrk5ia7qa012" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk1.png" id="2_6igca"]
+[ext_resource type="Texture2D" uid="uid://dgvfedh1teejy" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_duck.png" id="2_fi7fi"]
+[ext_resource type="Texture2D" uid="uid://j2wrs40clo4m" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_idle.png" id="2_kw4of"]
+[ext_resource type="Texture2D" uid="uid://jnt42t5uwigs" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk2.png" id="3_084ra"]
+[ext_resource type="Texture2D" uid="uid://ohvwpuw2ifow" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_slide.png" id="4_bj3h3"]
+[ext_resource type="Texture2D" uid="uid://c6ab5usovtwvg" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_jump.png" id="4_h8td1"]
+[ext_resource type="Texture2D" uid="uid://dvvkmshl5im4i" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_fall.png" id="4_kwjb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t0mu"]
+size = Vector2(75, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6cp0"]
+size = Vector2(75, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgrp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fi7fi")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kw4of")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kwjb5")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h8td1")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bj3h3")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6igca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_084ra")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1l8yk")
+
+[node name="CollisionShape2D_default" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8t0mu")
+
+[node name="CollisionShape2D_crouch" type="CollisionShape2D" parent="."]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_e6cp0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_kgrp7")
+animation = &"walk"
+frame_progress = 0.132088
