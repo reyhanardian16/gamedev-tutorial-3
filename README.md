@@ -19,3 +19,7 @@
 - Menambahkan animations di dalam sprite frames untuk setiap aksinya
 - Memainkan animasi untuk setiap aksi pada script, seperti walk, crouch, slide
 - Merubah flip_h menjadi true jika terdapat input ke kiri
+
+### Referensi
+https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html  
+https://forum.godotengine.org/t/flipping-sprite-around/40427
